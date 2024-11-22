@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LAN Speed tester</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./main.js" defer></script>
+    </head>
+    <body>
+        <!-- Input form -->
+        <div id="form">
+            <label>
+                <input type="range" min="1" max="100" value="5" id="packetCount">
+                Packet count
+            </label>
+            <label>
+                <input type="range" min="1" max="1000" value="10" id="packetSize">
+                Packet size (MB)
+            </label>
+            <!-- <output for="packetSize" onforminput="value = packetSize.valueAsNumber;"></output> -->
+            <label>
+                <input type="checkbox" value="false" id="varyPacketSize">
+                Vary packet size
+            </label>
+            <button type="submit" id="startButton" onclick="test()">Start</button>
+        </div>
+        <!-- Download result table -->
+        <table id="results_download">
+            <thead>
+                <tr class="download">
+                    <th scope="col" colspan="4">Download results</th>
+                </tr>
+                <tr>
+                    <th scope="col">Packet size (MB)</th>
+                    <th scope="col">Packet id</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Speed (MB/S) </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tr>
+                <td colspan="4">Average speed (MB/S): <span id="average_download">0</span></td>
+            </tr>
+        </table>
+        <!-- Upload result table -->
+        <table id="results_upload">
+            <thead>
+                <tr class="upload">
+                    <th scope="col" colspan="4">Upload results</th>
+                </tr>
+                <tr>
+                    <th scope="col">Packet size (MB)</th>
+                    <th scope="col">Packet id</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Speed (MB/S) </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tr>
+                <td colspan="4">Average speed (MB/S): <span id="average_upload">0</span></td>
+            </tr>
+        </table>
+    </body>
+</html>
